@@ -1,0 +1,72 @@
+<!--View Information-->
+<!--View name : Menu-->
+<!--Controller name : menuCtrl-->
+<!--Controller path : www/templates/menu/js/controllers.js-->
+<!--State name : app-->
+<!--URL : #app-->
+
+
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-balanced  material-background-nav-bar">
+      <ion-nav-buttons side="left">
+        <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <md-sidenav md-component-id="left" on-swipe-left="closeSideNav()" on-drag-left="closeSideNav()">
+    <!--menu section-->
+    <div class="material-background" id="toggle-menu-left-header">
+      <!--menu header section-->
+      <div class="menu-left-header">
+        <img class="user-img" src="img/profileAvatar.png">
+        <p>
+          <span class="title">Yield Weather</span>
+          <br/>
+          <span class="sub-title">Developed by Tejaswi Rana</span>
+        </p>
+      </div><!--end menu header section-->
+    </div> <!--menu content section-->
+    <ion-content id="toggle-menu-left-content">
+      <!--If device is android application will present below code.-->
+      <!--It will disable animation to better performance on android.-->
+      <!--list section-->
+      <div ng-if="isAndroid" class="menu-list">
+
+        <div class="row menu-item"  ng-click="navigateTo('app.home')">
+        <div class="col-33">
+          <i class="fa fa-umbrella"></i>
+        </div>
+        <div class="col-66">
+          <span>Get Forecasts</span>
+        </div>
+      </div>
+        <div class="row menu-item"  ng-click="navigateTo('app.home')">
+          <div class="col-33">
+            <i class="fa fa-group"></i>
+          </div>
+          <div class="col-66">
+            <span>About Us</span>
+          </div>
+        </div>
+
+      </div>
+      <!--If device is not Android application will present below code.-->
+      <!--It will show animation when selecting row.-->
+      <md-list ng-if="!isAndroid">
+        <md-list-item class="menu-list-item" ng-click="navigateTo('app.home')">
+        <i class="fa fa-umbrella"></i>
+        <span>Get Forecasts</span>
+      </md-list-item>
+        <md-list-item class="menu-list-item" ng-click="navigateTo('app.home')">
+          <i class="fa fa-group"></i>
+          <span>About Us</span>
+        </md-list-item>
+      </md-list>
+      <!--end list section-->
+    </ion-content><!--end menu content section-->
+    <!--end menu section-->
+  </md-sidenav>
+</ion-side-menus>
